@@ -1,0 +1,119 @@
+<p><strong>(FOREWORDS WIP)</strong></p><h2>A brief history</h2><ul><li><p>sometime during 2010, JetBrains thought compiling Scala was too slow and set out to create a new language for internal use</p></li><li><p>in July 2011, Project Kotlin was announced: a new statically typed language for the JVM: "free of the legacy trouble and having the features so desperately wanted by the developers"</p></li><li><p>initially marketed to Java developers with promises of concise syntax and null safety, while persisting the feature set of Scala</p></li><li><p>surge in interest as Google announced first-class support for the Android platform 2017</p></li></ul><h2>A brief present</h2><p>Kotlin targets many platforms and is described by countless paradigms. Essentially, its goal is stay unopinionated - your imperative and/or functional codebase can be compiled for the JVM, native targets (a LLVM-based binary, plus C, C++, Swift, Objective-C interoperability) or even into JavaScript. </p><blockquote><p>An exciting, experimental <a href="https://kotlinlang.org/docs/wasm-overview.html">support for WebAssembly</a> has been available since 2022. With <a href="https://chromestatus.com/feature/6062715726462976">WasmGC</a>, Google benchmarked up to double the canvas frame rate for Kotlin/Wasm versus Kotlin/JS, citing single millisecond frame update times at 120 frames per second. If you want to learn more about multi-platform UIs, check out <a href="https://www.jetbrains.com/lp/compose-multiplatform/">Compose</a> for Kotlin, it is like Flutter for Dart.</p></blockquote><p>This blog post emphasises developer experience when writing Kotlin for the JVM. Hopefully, “convert your entire Java codebase into Kotlin” doesn’t sound like such a bad idea by the end.</p><div><hr></div><h2>Flexibly productive or productively flexible?</h2><p>A hallmark of modern programming languages marketed as <em>productive</em> is their flexibility in expressing thought patterns (paradigm) and specific hardware constraints (platform). While the slogan "<em>write once, run anywhere</em>" still haunts (some of) us, it appears to be a desirable feature by those designing programming languages today. They’re not wrong either - running the same code on any platform is an awesome concept, but the execution has been, or largely remains, traumatic to developers. Growing up with Java, the developer experience of retrofitting an entirely new target platform to an existing application has been abysmal.<br><br>Flexibility in itself does not necessarily translate to productivity if it comes at the cost of developer experience. Additionally, becoming somewhat fluent in a language is in part required before you can truly <em>use and benefit from</em> that flexibility. Whether or not that’s economical time/effort-wise for an individual comes down to the basics: learning curve, prior knowledge in related languages, current life situation, personal interest, and so on.</p><p>But what about entire teams or companies adopting a new language for an existing product? Refactoring and re-architecting is common and it happens often - like writing a new microservice to replace a specific function from a monolith. Replacing the programming language used altogether, less so.<br><br>What would justify such a risk? Intractable, fundamental, business-breaking issues with the language first selected, right? Or maybe it’s too hard to hire developers with the right experience?</p><h2>From Java to Kotlin in the real world</h2><p>Interestingly, some <em>very large</em> Java codebases have been at least partially converted to Kotlin<strong> </strong>while citing productivity reasons: over at <a href="https://engineering.fb.com/2022/10/24/android/android-java-kotlin-migration/">Meta</a> and <a href="https://android-developers.googleblog.com/2020/07/Google-home-reduces-crashes.html">Google</a> for example. In the world of server-side applications, DoorDash <a href="https://doordash.engineering/2021/05/04/migrating-from-python-to-kotlin-for-our-backend-services/">migrated from Java and Python to Kotlin</a>, and <a href="https://blog.developer.adobe.com/streamlining-server-side-app-development-with-kotlin-be8cf9d8b61a">Adobe is moving from Java to Kotlin</a>. The list <a href="https://kotlinlang.org/lp/multiplatform/">goes on</a>. The two most anticipated benefits in a Java-to-Kotlin migration appear to be the same as Jetbrains’ originally advertised in 2011: concise syntax and null safety.<br><br>Kotlin/JVM’s 100% interoperability with Java code significantly reduces the risks involved in such a conversion. Meaning that Kotlin benefits from the entire JVM ecosystem and all the history involved - for better or worse. You can generally use any Java library with Kotlin, but in some cases, it’s better to use libraries with first-class Kotlin support instead*. </p><blockquote><p>*As an example, <a href="https://kotlinlang.org/docs/coroutines-overview.html">coroutines</a> are Kotlin’s take on asynchrony. If your favourite API offers both Java and Kotlin versions, it likely means that the Kotlin version uses the coroutine API for asynchrony over the Java standard library. Using the Kotlin-first version would then simplify <a href="https://kotlinlang.org/docs/coroutines-basics.html#structured-concurrency">structured concurrency</a> between your existing application and the API.</p></blockquote><p>Companies, products, teams and individuals have adopted Kotlin - not because continuing to use Java poses a problem for business continuity (evidently, it does not) - but <em>even</em> for the seemingly tiny benefit of better language ergonomics and developer experience. As a Java developer, you might be happy and comfortable. But you should at least <em>try</em> Kotlin - you might think it’s awesome too. In fact, there is no set up required, <a href="https://play.kotlinlang.org/byExample/overview">you only need a browser</a>. </p><p>If you already know and perhaps even prefer Kotlin, but still use Java at work, I would ask “why isn’t it Kotlin instead”? If the shoe fits, wear it!</p><div><hr></div><h2>What is idiomatic is obvious</h2><p>Coming from Java<strong> </strong>or other popular JVM-based languages, there is little overhead in picking up Kotlin. It is semantically related and compiles into bytecode for the JVM, but comes with some powerful features and syntactic sugar, referred to as <em>idioms</em>. Writing fluent Kotlin means writing idiomatic Kotlin. The compiler even checks for some common idioms - it will tell you how to turn the non-idiomatic into idiomatic.</p><pre><code>// non-idiomatic
+val name: String = "Adam" // Hint: Explicitly given type is redundant here
+<em>println</em>("Hello " + name + "!") // Hint: 'String' concatenation can be converted to a template
+
+// idiomatic
+val name = "Adam"
+println("Hello $name")</code></pre><blockquote><p>In Kotlin, memorising idioms and learning by doing are effectively the same process. You can adopt and use each idiom at any pace you wish. You don’t have look at a “<em>Big Book of Idioms”</em> while developing, but if you’re curious, some can be found <a href="https://kotlinlang.org/docs/idioms.html">here</a>. It’s a good way to get feeling for the syntax, too.<br><br>For those with a background in Java specifically, there are curated pages for the most important differences: <a href="https://kotlinlang.org/docs/java-to-kotlin-idioms-strings.html#build-a-string">strings</a>, <a href="https://kotlinlang.org/docs/java-to-kotlin-collections-guide.html">collections</a> and <a href="https://kotlinlang.org/docs/java-to-kotlin-nullability-guide.html">nullability</a>.</p><p>Jetbrains offers excellent, <a href="https://kotlinlang.org/docs/learning-materials-overview.html">free learning materials</a>. </p></blockquote><p><strong>(WIP)</strong></p><h2>Tailoring to your needs</h2><p>Kotlin is mostly known and used as an Android language, when in reality it’s so much more. What is awesome about Kotlin is not exclusive to Android applications. <strong>(WIP)</strong></p><p>Let’s introduce a few features, and then tie it all together in the end.</p><h3>Step 1 - Extension functions</h3><p><a href="https://kotlinlang.org/docs/extensions.html">Extensions</a>, similar to Swift and C#, allow you to extend classes and interfaces with new functionality. This is particularly useful when dealing with libraries, or in any other case in which you can’t change the existing code. Kotlin has a special declarative syntax for defining extensions.</p><pre><code>fun <strong>Random.nextPair()</strong>: Pair&lt;Int, Int&gt; = nextInt() to nextInt()</code></pre><p>Random is used as a receiver type<em> </em>in the function signature. No need to refer <code>this.nextInt()</code>.</p><h3>Step 2 - Function types</h3><p>Kotlin has <a href="https://kotlinlang.org/docs/lambdas.html">first-class functions</a> - you can store functions as values. Let’s replace the <code>nextPair</code> function using a function type.</p><pre><code>val nextPair: <strong>() -&gt; Pair&lt;Int, Int&gt;</strong> = {
+  println("Creating a random pair")
+  Random.nextInt() to Random.nextInt()
+}
+
+println(nextPair)
+println(nextPair())
+
+Output:
+Function0&lt;kotlin.Pair&lt;? extends java.lang.Integer, ? extends java.lang.Integer&gt;&gt;
+Creating a random pair
+(-1029978712, -1729913138)</code></pre><p><a href="https://kotlinlang.org/docs/lambdas.html#higher-order-functions">Higher-order functions</a> take functions as parameters, or return functions.</p><pre><code>val nextPair: <strong>() -&gt; Pair&lt;Int, Int&gt;</strong> = {
+  println("Creating a random pair")
+  Random.nextInt() to Random.nextInt()
+}
+
+fun manyPairs(
+    count: Int,
+    <strong>pairGenerator: () -&gt; Pair&lt;Int, Int&gt;</strong>,
+): List&lt;Pair&lt;Int, Int&gt;&gt; = List(count) {
+    pairGenerator()
+}
+...
+manyPairs(10, nextPair) // =&gt; List&lt;Pair&lt;Int, Int&gt;&gt;(size = 10)
+</code></pre><p>You can also use a <em>trailing lambda</em>.</p><pre><code>// with qualified return
+manyPairs(1) {           // =&gt; List&lt;Pair&lt;Int, Int&gt;&gt;(size = 1)
+  10 to 10
+}
+
+// which is equal to
+manyPairs(1) {           // =&gt; List&lt;Pair&lt;Int, Int&gt;&gt;(size = 1)
+  return@manyPairs 10 to 10
+}</code></pre><h3>Step 3 - Combining function types and extensions</h3><p>What if we <a href="https://kotlinlang.org/docs/lambdas.html#function-literals-with-receiver">want to scope</a> the <code>pairGenerator </code>function parameter in <code>manyPairs </code>to a receiver, say, <code>Random</code>?</p><pre><code>fun manyPairs(
+    count: Int,
+    pairGenerator: <strong>Random.() -&gt; Pair&lt;Int, Int&gt;</strong>,
+): List&lt;Pair&lt;Int, Int&gt;&gt; = List(count) {
+    <strong>Random.apply { pairGenerator() }</strong>
+}
+
+fun Random.nextPair(): Pair&lt;Int, Int&gt; = nextInt() to nextInt()
+
+val nextPairWithoutRandomReceiver: () -&gt; Pair&lt;Int, Int&gt; = {
+  println("Creating a random pair")
+  Random.nextInt() to Random.nextInt()
+}
+
+...
+
+manyPairs(10) { // lambda receives <em>Random</em> as receiver
+  println(this) // =&gt; Random$Instance
+  nextPair()
+}
+
+manyPairs(10, nextPairWithoutRandomReceiver()) // error: receiver of type Random expected</code></pre><h3>Step 4 - The real world</h3><p>Using these basic features, let’s look at a <em>code colouring problem </em>that I encountered in the real world.</p><p><a href="https://github.com/JetBrains/Exposed">Exposed</a> is a SQL framework for Kotlin. It can be used as a domain-specific language (SQL as Kotlin code), ORM or both. Defining a table goes as follows.</p><pre><code>object Users : Table(name = "user") {
+  val id = integer("id").autoIncrement()
+  val name = varchar("name", length = 50)
+
+  override val primaryKey = PrimaryKey(id)
+}</code></pre><p>Let’s create a function that selects all rows from <code>user</code>. Then, pass that function to <code>transaction</code> as a trailing lambda. Note that <code>block</code> receives a <code>Transaction</code>.</p><pre><code>fun readUsers() = Users.selectAll()
+
+// rough signature of transaction from Exposed
+fun &lt;T&gt; transaction(block: Transaction.() -&gt; T): T { ... }
+
+...
+
+transaction {
+  readUsers()
+}</code></pre><p>Exposed tells you to run all SQL in a <code>transaction</code>. So what happens if you don’t?</p><pre><code>transaction {
+  readUsers()
+}
+readUsers() // ???</code></pre><p>It compiles just fine. But at runtime, an exception will be thrown if there is no transaction in context when executing SQL. Ouch.</p><p>On the broader topic of <em>code colouring problems - </em>if you <em>just know </em>which functions need to be executed in a specific context, there is no issue - as long as you or your teammates don’t forget.</p><p>To get the compiler to co-operate, we could add an explicit <code>Transaction</code> parameter to <code>readUsers</code>.</p><pre><code>fun readUsers(tx: Transaction) = Users.selectAll()
+
+...
+
+transaction {
+  readUsers(this) // OK
+}
+
+readUsers() // error: Parameter of type Transaction expected</code></pre><p>This works, but it’s a bit ugly. Semantically, <code>readUsers</code> doesn’t exactly communicate that <code>tx</code> is an <em>execution context</em>. Let’s improve.</p><pre><code>fun <strong>Transaction.</strong>readUsers() = Users.selectAll()
+
+...
+
+transaction {
+  readUsers() // OK, equivalent to this.readUsers()
+}
+
+readUsers() // error: Unresolved reference readUsers()</code></pre><p>That’s better. We also managed to restrict the visibility of <code>readUsers</code>, so that you don’t get the temptation to call it in improper places. But still, we don’t really <em>need</em> the receiver for anything in <code>readUsers</code>. </p><p>There is one more option: <em><a href="https://github.com/Kotlin/KEEP/blob/master/proposals/context-receivers.md">context receivers</a></em>.</p><pre><code><strong>context(Transaction)</strong>
+fun readUsers() = Users.selectAll()
+
+...
+
+transaction {
+  readUsers() // OK
+}
+
+readUsers() // error: No required context receiver found</code></pre><p><em>Context-dependent declaration </em>is exactly what we want. A member extension is semantically different. Plus you can now also use a member extension, if needed.</p><pre><code><strong>context(Transaction)</strong>
+fun <strong>UserRepository.</strong>readUsers() = Users.selectAll()
+
+...
+
+interface Repository {
+  fun readAll()
+}
+
+object UserRepository : Repository {
+  override fun readAll() = transaction {
+    readUsers() // OK
+  }
+
+  fun readAll_noTx() = readUsers() // error: no context
+}
+
+readUsers() // error: Unresolved reference readUsers()</code></pre><p>Yay, runtime safety!</p><p>In reality, this is an issue for the library developers to solve, possibly with context receivers. But for the time being, you can easily patch around such issues with Kotlin’s expressive features.</p><h2>WIP WIP WIP <br></h2><p>TODO How to get started / Blueprint Kotlin repo for you to clone </p><p>TODO Future of Kotlin</p><p>TODO Closing thoughts</p><p></p><p></p>
