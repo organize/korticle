@@ -1,131 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="EN_GB">
 <head>
-<style>
-body {
-  --bg-color: rgba(18, 18, 18, 0.87);
-  --bg-color-emphasis: rgba(18, 18, 18, 0.24);
-  --primary: rgba(3, 218, 108, 0.87);
-  --secondary: rgba(187, 134, 252, 0.87);
-  --secondary-emphasis: rgba(187, 134, 252, 0.38);
-  --text-color: rgba(255, 255, 255, 0.87);
-  --text-color-emphasis: rgba(255, 255, 255, 1);
-  --font-weight-bold: 600;
-  --font-weight-medium: 500;
-  --font-weight-light: 400;
-  --font-family: 'Wotfard','Wotfard-fallback',sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: var(--font-family);
-  text-rendering: optimizeLegibility;
-  line-height: calc(1em + 0.5rem);
-  letter-spacing: calc(0.05rem);
-  box-sizing: border-box;
-  max-width: 840px;
-  padding-top: 44px;
-  padding-left: 44px;
-  padding-right: 44px;
-  margin: auto;
-  -webkit-font-smoothing: antialiased;
-}
-.competence-container {
-  position: relative;
-  background: var(--bg-color-emphasis);
-  padding: 10px 14px;
-  font-size: 14.5px;
-  letter-spacing: 0.024px;
-  line-height: calc(1em + 0.5rem);
-  font-family: "JetBrains Mono",SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace;
-}
-.group {
-	padding-left: 10px;
-}
-.group p {
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-.intro h3 {
-	margin-bottom: 0px;
-}
-.intro h4 {
-	margin-top: 0px;
-}
-hr { 
-  border-bottom: 2px solid var(--secondary); 
-  background: var(--primary); 
-}
-h1, h2, h3, h4, h5, h6 {
- color: var(--primary);
- font-weight: var(--font-weight-bold);
-}
-strong {
-	color: var(--text-color-emphasis);
-}
-a {
-  color: var(--primary);
-  font-weight: var(--font-weight-bold);
-  text-decoration-color: var(--secondary-emphasis)
-  text-decoration-thickness: .125em;
-  text-underline-offset: 1.5px;
-}
-::selection {
-  color: var(--text-color-emphasis);
-  background: var(--secondary-emphasis);
-}
-* {
-}
-.animate-character {
-  background-image: linear-gradient(290deg, rgba(3, 218, 108, 0.87) 0%, rgb(3 218 108 / 90%) 29%, rgb(3 218 108 / 92%) 67%, rgb(3 218 108) 100%);
-  background-size: auto auto;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-  display: inline-block;
-}
+    <style>
+        body {
+            --bg-color: rgba(18, 18, 18, 0.87);
+            --bg-color-emphasis: rgba(18, 18, 18, 0.24);
+            --primary: rgba(3, 218, 108, 0.87);
+            --secondary: rgba(187, 134, 252, 0.87);
+            --secondary-emphasis: rgba(187, 134, 252, 0.38);
+            --text-color: rgba(255, 255, 255, 0.87);
+            --text-color-emphasis: rgba(255, 255, 255, 1);
+            --font-weight-bold: 600;
+            --font-weight-medium: 500;
+            --font-weight-light: 400;
+            --font-family: 'Wotfard', 'Wotfard-fallback', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            text-rendering: optimizeLegibility;
+            line-height: calc(1em + 0.5rem);
+            letter-spacing: calc(0.05rem);
+            box-sizing: border-box;
+            max-width: 840px;
+            padding-top: 44px;
+            padding-left: 44px;
+            padding-right: 44px;
+            margin: auto;
+            -webkit-font-smoothing: antialiased;
+        }
 
-@keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
-}
-</style>
+        .competence-container {
+            position: relative;
+            background: var(--bg-color-emphasis);
+            padding: 10px 14px;
+            font-size: 0.9rem;
+            letter-spacing: 0.001rem;
+            line-height: calc(1em + 0.5rem);
+            font-family: "JetBrains Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        .group {
+            padding-left: 10px;
+        }
+
+        .group p {
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+
+        .intro h3 {
+            margin-bottom: 0;
+        }
+
+        .intro h4 {
+            margin-top: 0;
+        }
+
+        hr {
+            border-bottom: 2px solid var(--secondary);
+            background: var(--primary);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--primary);
+            font-weight: var(--font-weight-bold);
+        }
+
+        strong {
+            color: var(--text-color-emphasis);
+        }
+
+        a {
+            color: var(--primary);
+            font-weight: var(--font-weight-bold);
+            text-decoration-color: var(--secondary-emphasis);
+            text-decoration-thickness: .125em;
+            text-underline-offset: 2px;
+        }
+
+        ::selection {
+            color: var(--text-color-emphasis);
+            background: var(--secondary-emphasis);
+        }
+
+        * {
+        }
+
+        .animate-character {
+            background-image: linear-gradient(290deg, rgba(3, 218, 108, 0.87) 0%, rgb(3 218 108 / 90%) 29%, rgb(3 218 108 / 92%) 67%, rgb(3 218 108) 100%);
+            color: #fff;
+            background-clip: text;
+            text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 2s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes textclip {
+            to {
+                background-position: 200% center;
+            }
+        }
+    </style>
+    <title>big fancy page</title>
 </head>
 <body>
-	<div id="header" class="intro">
-		<h3 id="forest">𓍊𓋼𓍊𓋼𓍊𓍊𓋼𓍊𓋼</h3>
-		<h4 id="engineering-software-sometimes-pharmacology-">
-			<div class="animate-character">adam wallin</div> is engineering software. sometimes pharmacology.
-		</h4>
-	</div>
+<div id="header" class="intro">
+    <h3 id="forest">𓍊𓋼𓍊𓋼𓍊𓍊𓋼𓍊𓋼</h3>
+    <h4 id="engineering-software" class="animate-character">
+        adam wallin
+        is engineering software. sometimes pharmacology.
+    </h4>
+</div>
 
 <div class="group" id="about">
-<p>A stubborn problem solver currently on a consulting-spree over at <a href="https://nitor.com">Nitor</a>.</p>
-<p>When not consulting, I'll be making music, training at the gym or reading.</p>
-<p>Some years back I started to really enjoy <a href="https://lichess.org/">chess</a> too.</p>
+    <p>A stubborn problem solver currently on a consulting-spree over at <a href="https://nitor.com">Nitor</a>.</p>
+    <p>When not consulting, I'll be making music, training at the gym or reading.</p>
+    <p>Some years back I started to really enjoy <a href="https://lichess.org/">chess</a> too.</p>
 </div>
-<p>While my first lines of Java are from 2008, I&#39;m at my most useful when writing <strong>Kotlin backends</strong>, which I started doing in 2016. Functional programming has always been fun, but I am not a paradigm absolutist. Across the years I have worked with many technologies (surprising!), some of them good and some so bad that they have made me consider moving to a farm without electricity. Beauty is in the eye of the beholder! Here is a mixed list of both kinds:</p>
+<p>While my first lines of Java are from 2008, I&#39;m at my most useful when writing <strong>Kotlin backends</strong>,
+    which I started doing in 2016. Functional programming has always been fun, but I am not a paradigm absolutist.
+    Across the years I have worked with many technologies (surprising!), some of them good and some so bad that they
+    have made me consider moving to a farm without electricity. Beauty is in the eye of the beholder! Here is a mixed
+    list of both kinds:</p>
 <div class="competence-container group" id="competence">
-	<p>Ktor, Exposed, SQLDelight, Arrow, Node, Express, React, Angular, Spring, Hibernate</p>
-	<p>Kotlin, Java, Clojure, ClojureScript, Scala, JavaScript, TypeScript, Python, R</p>
-	<p>AWS, GCP, Docker, Kubernetes, GitHub/Lab, Jenkins, CDK, Terraform</p>
-	<p>MySQL, PostgreSQL, MariaDB, H2, Mongo, DynamoDB, Redis, S3</p>
-	<p>Kotest, Lincheck, JMH, Playwright, JUnit, Mocha, Jest</p>
-	<p>OpenAPI, Kover, Dokka, Dataframe, Jupyter</p>
+    <p>Ktor, Exposed, SQLDelight, Arrow, Node, Express, React, Angular, Spring, Hibernate</p>
+    <p>Kotlin, Java, Clojure, ClojureScript, Scala, JavaScript, TypeScript, Python, R</p>
+    <p>AWS, GCP, Docker, Kubernetes, GitHub/Lab, Jenkins, CDK, Terraform</p>
+    <p>MySQL, PostgreSQL, MariaDB, H2, Mongo, DynamoDB, Redis, S3</p>
+    <p>Kotest, Lincheck, JMH, Playwright, JUnit, Mocha, Jest</p>
+    <p>OpenAPI, Kover, Dokka, Dataframe, Jupyter</p>
 </div>
 <p>
-	I'm a realiable team-player who appreciates trust, openness, collaboration and well-being.<br/>
-	My greatest <em>abstract strength</em> is persistence. I believe hard work beats talent.<br/>
+    I'm a realiable team-player who appreciates trust, openness, collaboration and well-being.<br/>
+    My greatest <em>abstract strength</em> is persistence. I believe hard work beats talent.<br/>
 </p>
 
 <hr>
 <h3 id="yet-another-list-of-rambling">ramblings.</h3>
 <p>I sometimes write about pharmacology on <a href="https://ilmase.substack.com/">Substack</a>.</p>
 <ul>
-<li>2023-05 <a href="https://organize.github.io/thoughts/java_to_kotlin.html">Kotlin: if the shoe fits, wear it</a></li>
+    <li>2023-05 <a href="https://organize.github.io/thoughts/java_to_kotlin.html">Kotlin: if the shoe fits, wear it</a>
+    </li>
 </ul>
 <hr>
 <h3 id="cv">curriculum vitae.</h3>
@@ -133,33 +150,52 @@ a {
 <p class="strong">Located in Helsinki, Finland. I speak both Finnish and English natively.</p>
 <p><em>Exchanging Expertise for Euros (EEE™)</em></p>
 <ul>
-<li><strong>Nitor</strong> — 2019 — present — <em>software</em></li>
-<li><strong>Lamia</strong> — 2018 — 2019 — <em>software</em></li>
-<li><strong>Tasoi Records</strong> — 2016 — 2018 — <em>music</em></li>
-<li><strong>Walling Consulting</strong> — 2012 — 2015, 2016 - 2022 — <em>music</em>, <em>software</em></li>
+    <li><strong>Nitor</strong> — 2019 — present — <em>software</em></li>
+    <li><strong>Lamia</strong> — 2018 — 2019 — <em>software</em></li>
+    <li><strong>Tasoi Records</strong> — 2016 — 2018 — <em>music</em></li>
+    <li><strong>Walling Consulting</strong> — 2012 — 2015, 2016 - 2022 — <em>music</em>, <em>software</em></li>
 </ul>
 <p><em>Sitting for extended periods of time</em></p>
 <ul>
-<li><strong>University of Helsinki</strong> 2015 — * <em>comp sci</em><ul>
-<li>Bachelor thesis title — <em>Computational modeling of ligands targeting amino acid neurotransmission</em></li>
-<li>I quickly realized I have little motivation for computer science in an academic context, so I might never graduate</li>
-</ul>
-</li>
-<li><strong>Vaskivuoren lukio </strong> 2012 — 2015<ul>
-<li>Applied and was accepted to University of Helsinki at 16 through the first Java MOOC</li>
-<li>The <a href="https://datatahti.fi/en-info.html">Finnish Olympiad in Informatics</a> thought that was cool and gave me some money for the achievement</li>
-</ul>
-</li>
+    <li><strong>University of Helsinki</strong> 2015 — * <em>comp sci</em>
+        <ul>
+            <li>Bachelor thesis title — <em>Computational modeling of ligands targeting amino acid
+                neurotransmission</em></li>
+            <li>I quickly realized I have little motivation for computer science in an academic context, so I might
+                never graduate
+            </li>
+        </ul>
+    </li>
+    <li><strong>Vaskivuoren lukio </strong> 2012 — 2015
+        <ul>
+            <li>Applied and was accepted to University of Helsinki at 16 through the first Java MOOC</li>
+            <li>The <a href="https://datatahti.fi/en-info.html">Finnish Olympiad in Informatics</a> thought that was
+                cool and gave me some money for the achievement
+            </li>
+        </ul>
+    </li>
 </ul>
 <p><em>Mixed media</em></p>
 <ul>
-<li>I once discovered a vulnerability in <a href="https://www.notion.so/">Notion</a>. Interestingly, the most difficult part of that process was filing US tax forms for the bug bounty.</li>
-<li><a href="https://www.broadinstitute.org/">Broad Institute</a> (a joint MIT and Harvard biomedicine research center) has a database of approved drugs containing their known pharmacological and pharmacodynamic properties. It is used to screen for existing drugs that might have additional uses, like in oncology, for example. I have made contributions to this database, known as the <a href="https://clue.io/repurposing">Drug Repurposing Hub</a>.</li>
-<li>I have produced a gold-certified record. A creative burnout eventually pulled me back to software engineering. Going from a hobby to a career, and then from a career to a hobby once more, has taught me a valuable lesson in work-life balance. I still have a studio and make music occasionally. As a hobby.</li>
-<li>I sent my first invoice for coding at 13. I bought an Xbox and a cutlery holder for my mother. Boy was that exciting! Unfortunately the cutlery holder was kind of ugly and it had to be thrown away soon after. But it's the thought that counts!</li>
+    <li>I once discovered a vulnerability in <a href="https://www.notion.so/">Notion</a>. Interestingly, the most
+        difficult part of that process was filing US tax forms for the bug bounty.
+    </li>
+    <li><a href="https://www.broadinstitute.org/">Broad Institute</a> (a joint MIT and Harvard biomedicine research
+        center) has a database of approved drugs containing their known pharmacological and pharmacodynamic properties.
+        It is used to screen for existing drugs that might have additional uses, like in oncology, for example. I have
+        made contributions to this database, known as the <a href="https://clue.io/repurposing">Drug Repurposing Hub</a>.
+    </li>
+    <li>I have produced a gold-certified record. A creative burnout eventually pulled me back to software engineering.
+        Going from a hobby to a career, and then from a career to a hobby once more, has taught me a valuable lesson in
+        work-life balance. I still have a studio and make music occasionally. As a hobby.
+    </li>
+    <li>I sent my first invoice for coding at 13. I bought an Xbox and a cutlery holder for my mother. Boy was that
+        exciting! Unfortunately the cutlery holder was kind of ugly and it had to be thrown away soon after. But it's
+        the thought that counts!
+    </li>
 </ul>
 <hr>
 <p><a href="https://www.linkedin.com/in/adam-wallin/">LinkedIn</a>
-<a href="https://github.com/organize">GitHub</a> agile@null.net</p>
+    <a href="https://github.com/organize">GitHub</a> agile@null.net</p>
 </body>
 </html>
